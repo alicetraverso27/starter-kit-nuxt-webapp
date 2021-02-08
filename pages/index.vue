@@ -1,27 +1,52 @@
 <template>
-  <div class="container">
+  <div>
     <MyComponent />
-    <p>Api Calls: {{ ping }} {{ ip }}</p>
+    <p>GQL Calls: {{ ping }}</p>
+    <p>Api Calls: {{ results }}</p>
   </div>
 </template>
 
 <script>
 import gql from 'graphql-tag'
-
-const ping = gql`
-  query Ping {
-    ping
-  }
-`
+import i18nSeo from '@/mixins/i18nSeo.js'
 
 export default {
+  mixins: [i18nSeo],
   async asyncData({ $axios }) {
-    const ip = await $axios.$get('http://icanhazip.com')
-    return { ip }
+    const todos = await $axios.$get('https://gorest.co.in/public-api/todos')
+    return { results: todos }
+  },
+  data: () => ({
+    seo: {
+      title: '',
+      htmlAttrs: [],
+      meta: [],
+      links: [],
+    },
+  }),
+  mounted() {
+    this.seo.title = 'Webapp | Nuxt'
+    this.seo.meta = [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Starter kit webapp Nuxt',
+      },
+      { hid: 'og:title', property: 'og:title', content: 'Webapp | Nuxt' },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: 'Starter kit webapp Nuxt',
+      },
+    ]
   },
   apollo: {
     ping: {
-      query: ping,
+      query: gql`
+        query Ping {
+          ping
+        }
+      `,
       prefetch: true,
     },
   },

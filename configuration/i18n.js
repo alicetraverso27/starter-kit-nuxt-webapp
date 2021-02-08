@@ -3,7 +3,7 @@ import en from '../translation/en_US'
 
 export default {
   i18n: {
-    baseUrl: process.env.NUXT_ENV_BASEURL,
+    baseUrl: process.env.BASE_URL,
     locales: [
       {
         code: 'en',
@@ -26,7 +26,7 @@ export default {
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
-      alwaysRedirect: true,
+      // alwaysRedirect: true,
     },
     parsePages: false,
     pages: {},
