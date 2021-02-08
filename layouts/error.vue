@@ -7,13 +7,13 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      error: {
-        type: Object,
-        required: true
-      }
+export default {
+  layout: 'error',
+  props: {
+    error: {
+      type: Object,
+      required: true,
     },
-    layout: 'error'
-  }
+  },
+}
 </script>
