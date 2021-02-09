@@ -1,3 +1,4 @@
+// https://i18n.nuxtjs.org/
 import it from '../translation/it_IT'
 import en from '../translation/en_US'
 
@@ -29,6 +30,11 @@ export default {
       // alwaysRedirect: true,
     },
     parsePages: false,
-    pages: {},
+    pages: {
+      test: {
+        it: '/test-it/',
+        en: '/test-en/',
+      },
+    },
   },
 }

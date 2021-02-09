@@ -1,4 +1,4 @@
+// https://axios.nuxtjs.org/options/
 export default {
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 }

@@ -1,15 +1,14 @@
 <template>
   <div>
-    <nuxt-link :to="switchLocalePath('en')">English</nuxt-link>
-    <nuxt-link :to="switchLocalePath('it')">Italiano</nuxt-link>
     <MyComponent />
-    home {{ $i18n.locale }}
+    test {{ $i18n.locale }}
     <p>GQL Calls: {{ ping }}</p>
     <p>Api Calls: {{ results }}</p>
   </div>
 </template>
 
 <script>
+import gql from 'graphql-tag'
 import i18nSeo from '@/mixins/i18nSeo.js'
 
 export default {
@@ -41,6 +40,16 @@ export default {
         content: 'Starter kit webapp Nuxt',
       },
     ]
+  },
+  apollo: {
+    ping: {
+      query: gql`
+        query Ping {
+          ping
+        }
+      `,
+      prefetch: true,
+    },
   },
 }
 </script>

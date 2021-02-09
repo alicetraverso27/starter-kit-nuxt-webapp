@@ -1,4 +1,4 @@
+// https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-components
 export default {
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 }
