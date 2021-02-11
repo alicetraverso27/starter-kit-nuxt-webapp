@@ -1,0 +1,27 @@
+{
+  "name": "utils",
+  "version": "1.0.0",
+  "description": "Utilities for styles, scripts and assets",
+  "author": "Davide Marchet",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "lint:fix": "eslint --fix --ext .js, --ignore-path .gitignore ."
+  },
+  "dependencies": {
+    "babel-eslint": "^10.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-standard": "^4.1.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1"
+  }
+}
