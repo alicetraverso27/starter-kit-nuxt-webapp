@@ -3,6 +3,7 @@ import fonts from './fonts.js'
 
 export default {
   head: {
+    htmlAttrs: {},
     meta: [
       { name: 'charset', content: 'utf-8' },
       { name: 'author', content: process.env.AUTHOR },

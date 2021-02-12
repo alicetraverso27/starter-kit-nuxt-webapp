@@ -21,7 +21,7 @@ export default {
   data: () => ({
     seo: {
       title: '',
-      htmlAttrs: [],
+      htmlAttrs: {},
       meta: [],
       links: [],
     },
