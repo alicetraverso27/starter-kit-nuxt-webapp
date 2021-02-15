@@ -1,12 +1,28 @@
 <template>
-  <div>
-    <nuxt-link :to="switchLocalePath('en')">English</nuxt-link>
-    <nuxt-link :to="switchLocalePath('it')">Italiano</nuxt-link>
-    <MyComponent />
-    home {{ $i18n.locale }}
-    <p>GQL Calls: {{ ping }}</p>
-    <p>Api Calls: {{ results }}</p>
-  </div>
+  <LocomotiveScroll
+    ref="scroller"
+    :getted-options="{
+      smooth: true,
+      direction: 'vertical',
+      smartphone: {
+        smooth: true,
+        direction: 'vertical',
+      },
+      tablet: {
+        smooth: true,
+        direction: 'vertical',
+      },
+    }"
+  >
+    <div>
+      <nuxt-link :to="switchLocalePath('en')">English</nuxt-link>
+      <nuxt-link :to="switchLocalePath('it')">Italiano</nuxt-link>
+      <MyComponent />
+      home {{ $i18n.locale }}
+      <p>GQL Calls: {{ ping }}</p>
+      <p>Api Calls: {{ results }}</p>
+    </div>
+  </LocomotiveScroll>
 </template>
 
 <script>

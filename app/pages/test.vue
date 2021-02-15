@@ -1,6 +1,5 @@
 <template>
   <div>
-    <MyComponent />
     test {{ $i18n.locale }}
     <p>GQL Calls: {{ ping }}</p>
     <p>Api Calls: {{ results }}</p>

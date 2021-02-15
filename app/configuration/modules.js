@@ -9,6 +9,6 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/apollo',
     '@nuxtjs/sitemap',
-    '@nuxtjs/gtm'
+    '@nuxtjs/gtm',
   ],
 }
