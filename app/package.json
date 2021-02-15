@@ -24,7 +24,8 @@
     "nuxt": "^2.14.12",
     "nuxt-i18n": "^6.20.0",
     "qs": "^6.9.6",
-    "utils": "file:../utils"
+    "utils": "file:../utils",
+    "library": "file:../library"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",

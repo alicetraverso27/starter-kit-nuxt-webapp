@@ -10,10 +10,9 @@
 </template>
 
 <script>
-import i18nSeo from '@/mixins/i18nSeo.js'
+import gql from 'graphql-tag'
 
 export default {
-  mixins: [i18nSeo],
   async asyncData({ $axios }) {
     const todos = await $axios.$get('https://gorest.co.in/public-api/todos')
     return { results: todos }
@@ -26,6 +25,13 @@ export default {
       links: [],
     },
   }),
+  head() {
+    const title = this.seo?.title ? this.seo.title : ''
+    return {
+      title,
+      ...this.i18nTags(this.seo, this.$nuxtI18nSeo()),
+    }
+  },
   mounted() {
     this.seo.title = 'Webapp | Nuxt'
     this.seo.meta = [
@@ -41,6 +47,16 @@ export default {
         content: 'Starter kit webapp Nuxt',
       },
     ]
+  },
+  apollo: {
+    ping: {
+      query: gql`
+        query Ping {
+          ping
+        }
+      `,
+      prefetch: true,
+    },
   },
 }
 </script>
