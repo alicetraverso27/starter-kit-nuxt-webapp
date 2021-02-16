@@ -1,1 +1,9 @@
+/* @group Reset */
 
+a{
+  transition: color $speed-link ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* @end  */

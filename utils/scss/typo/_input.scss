@@ -1,3 +1,5 @@
+/* @group Reset */
+
 input{
   border: 1px solid $text-base;
   outline: 0;
@@ -10,6 +12,9 @@ input:not([type = checkbox]):not([type = radio]), textarea{
   border-radius: 0;
   -webkit-appearance: none;
 }
+
 ::placeholder {
   color: $text-base;
 }
+
+/* @end  */

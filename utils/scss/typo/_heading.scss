@@ -1,6 +1,8 @@
-.heading-1 {
-  @include responsiveFont(80, 30, 1);
-  font-family: $font-family-1;
-  font-weight: $font-weight-bold;
-  text-transform: uppercase;
+/* @group Reset */
+
+h1, h2, h3, h4, h5, h6{
+  font-weight: $font-weight-base;
+  margin: 0;
 }
+
+/* @end  */

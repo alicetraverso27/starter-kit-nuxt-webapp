@@ -96,4 +96,10 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+body {
+  @include gesture('pointer') {
+    background: #cc0000;
+  }
+}
+</style>

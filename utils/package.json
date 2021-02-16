@@ -10,7 +10,9 @@
     "lint:fix": "eslint --fix --ext .js, --ignore-path .gitignore ."
   },
   "dependencies": {
-    "babel-eslint": "^10.1.0"
+    "babel-eslint": "^10.1.0",
+    "include-media": "^1.4.9",
+    "modern-css-reset": "^1.4.0"
   },
   "devDependencies": {
     "eslint": "^7.19.0",

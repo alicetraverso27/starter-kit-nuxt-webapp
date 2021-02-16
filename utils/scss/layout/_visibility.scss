@@ -1,16 +1,3 @@
-
-.normalized--height{
-  height: var(--viewport-height);
-}
-
-.fix-body{
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-
 .show-for-small{
   @include media('>=large'){
     display: none!important;
