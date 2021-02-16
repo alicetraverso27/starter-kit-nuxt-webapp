@@ -26,6 +26,7 @@
     "nuxt": "^2.14.12",
     "nuxt-i18n": "^6.20.0",
     "qs": "^6.9.6",
+    "remove-focus-outline": "^1.2.1",
     "utils": "file:../utils"
   },
   "devDependencies": {
