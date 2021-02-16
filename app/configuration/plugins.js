@@ -5,7 +5,7 @@ export default {
     { src: '~/plugins/client.js', mode: 'client' },
     { src: '~/plugins/server.js', mode: 'server' },
     // Library
-    { src: '~/node_modules/remove-focus-outline', mode: 'client'}
+    { src: '~/node_modules/remove-focus-outline', mode: 'client' },
   ],
   // plugins: ['~/plugins/url-helpers.js']
 }

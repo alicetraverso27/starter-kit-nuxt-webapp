@@ -14,7 +14,7 @@
       },
     }"
   >
-  <input type="text" placeholder="mona" />
+    <input type="text" placeholder="mona" />
     <div>
       <VideoPlayer
         ref="video"

@@ -28,6 +28,6 @@ export default {
       },
       { rel: 'manifest', href: '/site.webmanifest' },
       ...fonts,
-    ]
+    ],
   },
 }
