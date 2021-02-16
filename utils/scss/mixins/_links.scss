@@ -1,0 +1,28 @@
+/* @group Underline Links */
+
+@mixin underline($height: 2px, $color: inherit) {
+  text-decoration: none;
+  display: inline-block;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: $height solid;
+    border-color: $color;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(1) translateY(#{$height * 2});
+    transform-origin: bottom right;
+    transition: transform $speed-medium ease;
+  }
+  @media (pointer: fine) and (hover: hover) {
+    &:hover {
+      &:after {
+        transform-origin: bottom left;
+        transform: scaleX(0) translateY(#{$height * 2});
+      }
+    }
+  }
+}
+
+/* @end */

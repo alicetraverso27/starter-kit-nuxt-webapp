@@ -1,0 +1,24 @@
+/* @include responsiveFont */
+@mixin responsiveFont($minFont, $maxFont, $lineHeight: 1.5, $minWidth: 750, $maxWidth: 1920) {
+  font-size: calc(
+    (#{$minFont} * 1px) + (#{$maxFont} - #{$minFont}) *
+      ((100vw - #{$minWidth} * 1px) / (#{$maxWidth} - #{$minWidth}))
+  );
+  line-height: calc(
+    (#{$lineHeight} * 1em) + (#{$lineHeight} - 1.2) *
+      ((100vw - #{$minWidth} * 1px) / (#{$maxWidth} - #{$minWidth}))
+  );
+
+  @media (max-width: #{$minWidth * 1px}) {
+    font-size: calc(#{$minFont} * 1px);
+  }
+  @media (min-width: #{$maxWidth * 1px}) {
+    font-size: calc(#{$maxFont} * 1px);
+  }
+}
+
+@mixin strokeText($textFill: transparent, $textWidth: 1px, $textStroke: $color-black-1) {
+  -webkit-text-fill-color: $textFill; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: $textWidth;
+  -webkit-text-stroke-color: $textStroke;
+}

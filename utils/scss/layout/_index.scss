@@ -1,0 +1,36 @@
+@import 'modern-css-reset';
+
+*{
+  position: relative;
+}
+
+html{
+  height: 100%;
+}
+
+body{
+  background-color: $background-base;
+  min-height: 100vh;
+}
+
+ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+img{
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+
+@import './_paddings.scss';
+@import './_margins.scss';
+@import './_images.scss';
+@import './_scroll.scss';
+@import './_transitions.scss';
+@import './_content.scss';
+@import './_utils.scss';
+
+/* Widget */

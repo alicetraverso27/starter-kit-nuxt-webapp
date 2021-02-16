@@ -1,0 +1,15 @@
+@import '~include-media/dist/_include-media.scss';
+
+/* @include Media Breakpoint */
+$breakpoints: (
+  'xsmall': 320px,
+  'small': 480px,
+  'medium': 750px,
+  'large': 1000px,
+  'xlarge': 1300px,
+  'xxlarge': 1600px,
+  'xxxlarge': 1800px,
+  'portrait': '(orientation: portrait)',
+  'landscape': '(orientation: landscape)',
+  'pointing': '(pointer: fine) and (hover: hover)'
+);

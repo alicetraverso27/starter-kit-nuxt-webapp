@@ -1,0 +1,6 @@
+
+.row-1 {
+  @include scaleRule('padding-left', 20, 250);
+  @include scaleRule('padding-right', 20, 250);
+  @include scaleRow();
+}

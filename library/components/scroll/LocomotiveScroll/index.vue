@@ -54,8 +54,8 @@ export default {
   },
   methods: {
     onScroll(e) {
-      if (typeof this.$store._mutations['scroll/setScroll'] !== 'undefined') {
-        this.$store.commit('scroll/setScroll', {
+      if (typeof this.$store._mutations['app/setScroll'] !== 'undefined') {
+        this.$store.commit('app/setScroll', {
           isScrolling: this.locomotive.scroll.isScrolling,
           limit: { ...e.limit },
           ...e.scroll, // x, y

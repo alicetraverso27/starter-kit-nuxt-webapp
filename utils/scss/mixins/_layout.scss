@@ -1,0 +1,33 @@
+/* @include scaleRow */
+/**
+  Se il padding è una percentuale (o vw) 
+  $overPaddingFactor è il rapporto MaxWidth / 100 * X
+  dove x è il valore assoluto del padding (se 5vw overpadding sarà 5).
+  @include scaleRow($paddingLR: 2.5vw * 3, ...., $overPaddingFactor: 0.075); // $overPaddingFactor: 2.5*3 / 100
+*/
+@mixin scaleRow($maxWidth: 1920,  $unit: 'px'){
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  @if $maxWidth == none {
+    max-width: none;
+  } @else {
+    max-width: #{$maxWidth}#{$unit};
+  }
+}
+
+/* @include scaleRow */
+@mixin scaleRule($rule, $min, $max, $minWidth: 750, $maxWidth: 1920, $unit: 'px'){
+  #{$rule}: calc((#{$min} * 1#{$unit}) + (#{$max} - #{$min}) * ((100vw - #{$minWidth}  * 1#{$unit}) / (#{$maxWidth}  - #{$minWidth})));
+  @media (max-width: #{$minWidth}#{$unit}){
+    #{$rule}: #{$min}#{$unit};
+  }
+  @media (min-width: #{$maxWidth}#{$unit}){
+    #{$rule}: #{$max}#{$unit};
+  }
+}
+
+/* @include limit */
+@function limit($min ,$max, $minWidth: 750, $maxWidth: 1920, $unit: 'px') {
+  @return calc((#{$min} * 1#{$unit}) + (#{$max} - #{$min}) * ((100vw - #{$minWidth} * 1#{$unit}) / (#{$maxWidth} - #{$minWidth})));
+}
