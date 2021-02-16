@@ -17,7 +17,6 @@
     <div>
       <nuxt-link :to="switchLocalePath('en')">English</nuxt-link>
       <nuxt-link :to="switchLocalePath('it')">Italiano</nuxt-link>
-      <MyComponent />
       home {{ $i18n.locale }}
       <p>GQL Calls: {{ ping }}</p>
       <p>Api Calls: {{ results }}</p>
