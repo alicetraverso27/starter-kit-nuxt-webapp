@@ -15,6 +15,24 @@
     }"
   >
     <div>
+      <VideoPlayer
+        ref="video"
+        :options="{
+          loadingSpinner: true,
+          autoplay: true,
+          muted: false,
+          controls: true,
+          loop: true,
+          playsinline: true,
+          preload: 'auto',
+          sources: [
+            {
+              src: 'https://player.vimeo.com/external/438820261.hd.mp4?s=b3352a6e1751a4c3c414f15f819cf3cf0e86868f&profile_id=175',
+              type: 'video/mp4'
+            }
+          ]
+        }"
+      />
       <nuxt-link :to="switchLocalePath('en')">English</nuxt-link>
       <nuxt-link :to="switchLocalePath('it')">Italiano</nuxt-link>
       home {{ $i18n.locale }}
