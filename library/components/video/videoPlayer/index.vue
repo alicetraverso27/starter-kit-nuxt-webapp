@@ -1,5 +1,5 @@
 <template>
-  <video ref="videoPlayer" class="video-js" />
+  <video v-videojs="{ options }" class="video-js" />
 </template>
 
 <script>
@@ -8,49 +8,41 @@ import 'video.js/dist/video-js.css'
 
 export default {
   name: 'VideoPlayer',
+  directives: {
+    videojs: {
+      inserted(el, binding, vnode) {
+        vnode.context.player = videojs(el, binding.value.options, () => {
+          vnode.context.$emit('init')
+        })
+      },
+      unbind(el, binding, vnode) {
+        vnode.context.player.dispose()
+        vnode.context.player = undefined
+      },
+    },
+  },
   props: {
     options: {
       type: Object,
-      default() {
-        return {}
-      },
-    },
-    play: {
-      type: Boolean,
-      default: false,
+      default: () => ({}),
     },
   },
   data: () => ({
-    player: null,
+    player: undefined,
   }),
-  watch: {
-    play(val) {
-      this.playVideo(val)
-    },
-  },
-  mounted() {
-    this.player = videojs(this.$refs.videoPlayer, this.options, () => {
-      this.$emit('ready')
-    })
-  },
   methods: {
-    playVideo(val) {
+    play(val) {
       if (val) {
         this.player.play()
       } else {
         this.player.pause()
       }
-      this.$emit('playing', val)
+      this.$emit('play', val)
     },
     mute(val) {
       this.player.muted(val)
       this.$emit('mute', val)
     },
-  },
-  destroy() {
-    if (this.player) {
-      this.player.dispose()
-    }
   },
 }
 </script>
