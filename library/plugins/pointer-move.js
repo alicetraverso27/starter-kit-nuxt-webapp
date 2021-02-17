@@ -11,7 +11,7 @@ const onMove = (e, context) => {
 }
 
 const install = (Vue) => {
-  Vue.directive('move', {
+  Vue.directive('pointerMove', {
     bind(el, binding, vnode) {
       if ('ontouchstart' in window) {
         el.addEventListener('touchmove', (e) => onMove(e, vnode.context))

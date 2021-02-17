@@ -1,3 +1,8 @@
+// @include font-face(Roboto, "path/Roboto", 400, normal);
+
+:root{
+  font-size: 62.5%;
+}
 body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -7,6 +12,7 @@ body{
   letter-spacing: $font-spacing-base;
   line-height: $line-height-base;
   color: $text-base;
+  font-size: $font-size-base;
 }
 
 @import './_text.scss';

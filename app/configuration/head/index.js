@@ -9,6 +9,7 @@ export default {
       { name: 'author', content: process.env.AUTHOR },
     ],
     link: [
+      ...fonts,
       {
         rel: 'apple-touch-icon',
         sizes: '180x180',
@@ -27,7 +28,6 @@ export default {
         href: '/favicon-16x16.png',
       },
       { rel: 'manifest', href: '/site.webmanifest' },
-      ...fonts,
     ],
   },
 }

@@ -14,6 +14,7 @@
       },
     }"
   >
+    <p>weewrwrew</p>
     <input type="text" placeholder="mona" />
     <div>
       <VideoPlayer
@@ -101,5 +102,8 @@ body {
   @include gesture('pointer') {
     background: #cc0000;
   }
+}
+p {
+  @include clamp('margin', 100px, 10vw, 200px);
 }
 </style>

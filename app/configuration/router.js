@@ -2,6 +2,6 @@
 export default {
   router: {
     middleware: [],
-    // trailingSlash: true,
+    trailingSlash: true,
   },
 }

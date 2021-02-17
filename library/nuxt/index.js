@@ -16,8 +16,9 @@ export default function () {
   this.nuxt.hook('components:dirs', (dirs) => {
     // Add ./components dir to the list
     dirs.push({
+      // TODO: Check ho to target subfolder and not only first level folder
       path: join(__dirname, '../components'),
-      ignore: ['./components/**/*.js'],
+      // ignore: ['./components/**/*.js'],
     })
   })
 }

@@ -19,7 +19,8 @@ $breakpoints: (
     @media (pointer: fine) and (hover: hover) {
       @content;
     }
-  } @else if ($condition == 'touch') { // Not Hover
+  } 
+  @else if ($condition == 'touch') { // Not Hover
     @media (pointer: coarse) and (hover: none) {
       @content;
     }

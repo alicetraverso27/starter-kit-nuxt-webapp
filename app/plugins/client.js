@@ -1,10 +1,10 @@
 import Vue from 'vue'
-import LocomotiveScroll from 'library/plugins/scroll/locomotive-scroll'
-import viewportSizes from 'library/plugins/scroll/viewport-sizes'
-import detectHoverTouch from 'library/plugins/gesture/detect-hover-touch.js'
-import Move from 'library/plugins/gesture/move.js'
+import locomotiveScroll from 'library/plugins/locomotive-scroll'
+import viewportSizes from 'library/plugins/viewport-sizes'
+import detectHoverTouch from 'library/plugins/detect-hover-touch'
+import pointerMove from 'library/plugins/pointer-move'
 
-Vue.use(LocomotiveScroll)
+Vue.use(locomotiveScroll)
 Vue.use(viewportSizes)
 Vue.use(detectHoverTouch)
-Vue.use(Move)
+Vue.use(pointerMove)

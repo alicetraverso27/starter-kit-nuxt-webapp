@@ -5,11 +5,9 @@ export default [
     crossorigin: 'anonymous',
   },
   {
-    rel: 'preload',
-    as: 'font',
+    rel: 'stylesheet',
     href:
-      'https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap',
-    crossorigin: 'anonymous',
+      'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap',
   },
   // { rel: 'preload', as="font", href="/assets/my-local-font", type="font/woff2", crossorigin="anonymous" }
 ]

@@ -1,5 +1,5 @@
 <template>
-  <div v-viewportSizes v-detectHoverTouch v-move>
+  <div v-viewportSizes v-detectHoverTouch v-pointerMove>
     <Nuxt />
   </div>
 </template>
