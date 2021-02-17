@@ -16,7 +16,7 @@
   >
     <p>weewrwrew</p>
     <input type="text" placeholder="mona" />
-    <div>
+    <div class="row">
       <VideoPlayer
         ref="video"
         :options="{
@@ -39,6 +39,7 @@
       <nuxt-link :to="switchLocalePath('en')">English</nuxt-link>
       <nuxt-link :to="switchLocalePath('it')">Italiano</nuxt-link>
       home {{ $i18n.locale }}
+      <h1>TESTSTETSTfef</h1>
       <p>GQL Calls: {{ ping }}</p>
       <p>Api Calls: {{ results }}</p>
     </div>
@@ -103,7 +104,34 @@ body {
     background: #cc0000;
   }
 }
+.row {
+  @include clamp('width', 0px, calc(75vw + 50px), 1920px);
+  padding: 25px;
+  margin: auto;
+  background: #ccc;
+  .video-js {
+    width: 100%;
+  }
+}
 p {
-  @include clamp('margin', 100px, 10vw, 200px);
+  @include clamp('margin', 100px, 10vw, 200px, 150px, 25vw, 300px);
+}
+
+h1 {
+  // $property: 'font-size', $sizes: ('<large': 12px , '>=large': 50px)
+  @include break(
+    'font-size',
+    (
+      '<large': 12px,
+      '>=large': 50px,
+    )
+  );
+  @include break(
+    'margin',
+    (
+      '<large': 12px 50px,
+      '>=large': 222px 550px,
+    )
+  );
 }
 </style>

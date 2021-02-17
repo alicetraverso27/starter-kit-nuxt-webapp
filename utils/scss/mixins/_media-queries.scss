@@ -14,16 +14,13 @@ $breakpoints: (
 );
 
 
-@mixin gesture($condition: '') {
-  @if ($condition == '') {
-    @error "You must provide a value ('pointer' or 'touch')";
-  }
-  @if ($condition == 'pointer') { // Hover
+@mixin gesture($condition) {
+  @if $condition == 'pointer' { // Hover
     @media (pointer: fine) and (hover: hover) {
       @content;
     }
   } 
-  @else if ($condition == 'touch') { // Not Hover
+  @else if $condition == 'touch' { // Not Hover
     @media (pointer: coarse) and (hover: none) {
       @content;
     }

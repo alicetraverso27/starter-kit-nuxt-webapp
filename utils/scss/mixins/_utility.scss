@@ -1,15 +1,26 @@
+// @include clamp('margin', 100px, 10vw, 200px, 150px, 25vw, 300px);
+// @include clamp('margin', 100px, 10vw, 200px);
 @mixin clamp($property, $min-size, $scaler, $max-size, $min-size-left:false, $scaler-left:false, $max-size-left:false){
   @if $min-size-left == false {
-    #{$property}:$max-size; 
-    #{$property}:#{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"}; 
-    #{$property}:clamp(#{$min-size}, #{$scaler}, #{$max-size});
-  } @else if $min-size-left == 0 or $min-size-left == auto{
-    #{$property}:$max-size $min-size-left; 
-    #{$property}:#{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"} $min-size-left;
-    #{$property}:clamp(#{$min-size}, #{$scaler}, #{$max-size}) $min-size-left;
+    #{$property}: $max-size; 
+    #{$property}: #{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"}; 
+    #{$property}: clamp(#{$min-size}, #{$scaler}, #{$max-size});
+  } @else if $min-size-left == 0 or $min-size-left == auto {
+    #{$property}: $max-size $max-size-left; 
+    #{$property}: #{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"} $min-size-left;
+    #{$property}: clamp(#{$min-size}, #{$scaler}, #{$max-size}) $min-size-left;
   } @else {
-    #{$property}:$max-size $min-size-left; 
+    #{$property}:$max-size $max-size-left; 
     #{$property}:#{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"} #{"min(max(#{$min-size-left}, #{$scaler-left}), #{$max-size-left})"}; 
-    #{$property}:clamp(#{$min-size-left}, #{$scaler-left}, #{$max-size-left});
+    #{$property}: clamp(#{$min-size}, #{$scaler}, #{$max-size}) clamp(#{$min-size-left}, #{$scaler-left}, #{$max-size-left});
+  }
+}
+
+// @include break('font-size', ('<large': 12px , '>=large': 50px));
+@mixin break($property, $sizes) {
+  @each $breakpoint, $size in $sizes {
+    @include media(#{$breakpoint}){
+      #{$property}: $size
+    }
   }
 }
