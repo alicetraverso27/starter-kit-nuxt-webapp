@@ -1,26 +1,47 @@
-// @include clamp('margin', 100px, 10vw, 200px, 150px, 25vw, 300px);
-// @include clamp('margin', 100px, 10vw, 200px);
-@mixin clamp($property, $min-size, $scaler, $max-size, $min-size-left:false, $scaler-left:false, $max-size-left:false){
-  @if $min-size-left == false {
-    #{$property}: $max-size; 
-    #{$property}: #{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"}; 
-    #{$property}: clamp(#{$min-size}, #{$scaler}, #{$max-size});
-  } @else if $min-size-left == 0 or $min-size-left == auto {
-    #{$property}: $max-size $max-size-left; 
-    #{$property}: #{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"} $min-size-left;
-    #{$property}: clamp(#{$min-size}, #{$scaler}, #{$max-size}) $min-size-left;
-  } @else {
-    #{$property}:$max-size $max-size-left; 
-    #{$property}:#{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"} #{"min(max(#{$min-size-left}, #{$scaler-left}), #{$max-size-left})"}; 
-    #{$property}: clamp(#{$min-size}, #{$scaler}, #{$max-size}) clamp(#{$min-size-left}, #{$scaler-left}, #{$max-size-left});
+
+// @include clamp('margin', (100px 10vw 200px, 150px 25vw 300px));
+@mixin clamp($property, $sizes){
+  $values: ();
+  @each $size in $sizes {
+    $clamp: ();
+    @each $value in $size {
+      $clamp: append($clamp, $value, $separator: comma);
+    }
+    $values: append($values, clamp(#{$clamp}));
   }
+  #{$property}: $values;
 }
 
 // @include break('font-size', ('<large': 12px , '>=large': 50px));
+/// Agnostic version
+/// @mixin break($property, $sizes) {
+  /// @each $breakpoint, $size in $sizes {
+    ///@media #{$breakpoint}{
+      /// #{$property}: $size;
+    /// }
+  /// }
+/// }
+
 @mixin break($property, $sizes) {
   @each $breakpoint, $size in $sizes {
     @include media(#{$breakpoint}){
-      #{$property}: $size
+      #{$property}: $size;
+    }
+  }
+}
+
+@mixin static($class, $property, $min, $max, $unit: 'px', $step: 1, $factor: 1){
+  @if $min < 0 or $max < 0 or $max < $min {
+    @error "$min and $max values must be > 0 and $max > $min";
+  }
+  @if $step <= 0 {
+    @error "$step > 0";
+  }
+  @for $i from $min through $max {
+    @if $i % $step == 0 {
+      .#{$class}-#{$i*$factor}{
+        #{$property}: #{$i*$factor}#{$unit}
+      }
     }
   }
 }

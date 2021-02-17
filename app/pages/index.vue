@@ -14,7 +14,7 @@
       },
     }"
   >
-    <p>weewrwrew</p>
+    <p class="margin-10">weewrwrew</p>
     <input type="text" placeholder="mona" />
     <div class="row">
       <VideoPlayer
@@ -105,7 +105,6 @@ body {
   }
 }
 .row {
-  @include clamp('width', 0px, calc(75vw + 50px), 1920px);
   padding: 25px;
   margin: auto;
   background: #ccc;
@@ -114,7 +113,7 @@ body {
   }
 }
 p {
-  @include clamp('margin', 100px, 10vw, 200px, 150px, 25vw, 300px);
+  @include clamp('margin', (100px 10vw 200px, 150px 25vw 300px));
 }
 
 h1 {
@@ -134,4 +133,6 @@ h1 {
     )
   );
 }
+
+@include static('margin', 'margin', 1, 100);
 </style>
