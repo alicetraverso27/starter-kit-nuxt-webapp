@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import cookieBot from 'library/plugins/cookiebot'
 import locomotiveScroll from 'library/plugins/locomotive-scroll'
 import viewportSizes from 'library/plugins/viewport-sizes'
 import detectHoverTouch from 'library/plugins/detect-hover-touch'
@@ -8,3 +9,4 @@ Vue.use(locomotiveScroll)
 Vue.use(viewportSizes)
 Vue.use(detectHoverTouch)
 Vue.use(pointerMove)
+Vue.use(cookieBot)
