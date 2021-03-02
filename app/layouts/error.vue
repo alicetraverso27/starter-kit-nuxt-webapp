@@ -1,5 +1,5 @@
 <template>
-  <div v-viewportSizes v-detectHoverTouch v-move>
+  <div v-viewportSizes v-detectHoverTouch v-pointerMove>
     <h1 v-if="error.statusCode === 404">Page not found</h1>
     <h1 v-else>An error occurred</h1>
     <NuxtLink to="/">Home page</NuxtLink>
