@@ -36,8 +36,8 @@
           ],
         }"
       />
-      <nuxt-link :to="switchLocalePath('en')">English</nuxt-link>
-      <nuxt-link :to="switchLocalePath('it')">Italiano</nuxt-link>
+      <nuxt-link :to="switchLocalePath('en')"> English </nuxt-link>
+      <nuxt-link :to="switchLocalePath('it')"> Italiano </nuxt-link>
       home {{ $i18n.locale }}
       <h1>TESTSTETSTfef</h1>
       <p>GQL Calls: {{ ping }}</p>
