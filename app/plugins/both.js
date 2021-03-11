@@ -1,4 +1,4 @@
 import Vue from 'vue'
-import i18nTags from './seo/i18n-tags.js'
+import i18nHead from './seo/i18n-head.js'
 
-Vue.use(i18nTags)
+Vue.use(i18nHead)

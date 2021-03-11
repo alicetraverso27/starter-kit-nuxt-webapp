@@ -5,10 +5,10 @@ const structure = {
 }
 
 const install = (Vue) => {
-  Vue.prototype.i18nTags = (tags = structure, $nuxtI18nSeo = structure) => {
-    const htmlAttrs = { ...$nuxtI18nSeo.htmlAttrs, ...tags.htmlAttrs }
-    const meta = Object.values({ ...$nuxtI18nSeo.meta, ...tags.meta })
-    const link = Object.values({ ...$nuxtI18nSeo.link, ...tags.link })
+  Vue.prototype.i18nHead = (tags = structure, i18nHead= structure) => {
+    const htmlAttrs = { ...i18nHead.htmlAttrs, ...tags.htmlAttrs }
+    const meta = Object.values({ ...i18nHead.meta, ...tags.meta })
+    const link = Object.values({ ...i18nHead.link, ...tags.link })
 
     return {
       htmlAttrs,
