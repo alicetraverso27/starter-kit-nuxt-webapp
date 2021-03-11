@@ -4,6 +4,7 @@ import en from '../translation/en_US'
 
 export default {
   i18n: {
+    seo: false,
     baseUrl: process.env.BASE_URL,
     locales: [
       {
