@@ -66,7 +66,10 @@ export default {
     const title = this.seo?.title ? this.seo.title : ''
     return {
       title,
-      ...this.i18nHead(this.seo, this.$nuxtI18nHead({ addSeoAttributes: true })),
+      ...this.i18nHead(
+        this.seo,
+        this.$nuxtI18nHead({ addSeoAttributes: true })
+      ),
     }
   },
   mounted() {
