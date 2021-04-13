@@ -31,6 +31,7 @@ import runtimeConfig from './configuration/runtimeConfig.js'
 import server from './configuration/server.js'
 import sitemap from './configuration/sitemap.js'
 import srcDir from './configuration/srcDir.js'
+import ssr from './configuration/ssr.js'
 import styleResources from './configuration/styleResources.js'
 import target from './configuration/target.js'
 import telemetry from './configuration/telemetry.js'
@@ -72,6 +73,7 @@ export default {
   ...server,
   ...sitemap,
   ...srcDir,
+  ...ssr,
   ...styleResources,
   ...target,
   ...telemetry,
