@@ -8,5 +8,7 @@ export default {
     '@nuxtjs/apollo',
     '@nuxtjs/sitemap',
     '@nuxtjs/gtm',
+    // https://go.nuxtjs.dev/pwa
+    '@nuxtjs/pwa',
   ],
 }
