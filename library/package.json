@@ -11,16 +11,16 @@
   },
   "dependencies": {
     "babel-eslint": "^10.1.0",
-    "locomotive-scroll": "^4.1.0",
+    "locomotive-scroll": "^4.1.1",
     "path": "^0.12.7",
-    "video.js": "^7.11.4"
+    "video.js": "^7.11.8"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config": "^5.0.0",
-    "eslint": "^7.20.0",
-    "eslint-config-prettier": "^8.1.0",
+    "@nuxtjs/eslint-config": "^6.0.0",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^2.0.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "prettier": "^2.2.1"
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.0"
   }
 }
