@@ -16,6 +16,32 @@ const install = (Vue) => {
       link,
     }
   }
+
+  Vue.prototype.generateTags = ({ title, description, image }) => ({
+    title,
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: description,
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: title,
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: image,
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: description,
+      },
+    ],
+  })
 }
 
 export default install

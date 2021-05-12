@@ -1,4 +1,10 @@
 // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-modules#buildmodules
 export default {
-  buildModules: ['@nuxtjs/dotenv', 'library/nuxt'],
+  buildModules: [
+    '@nuxtjs/dotenv',
+    'library/nuxt',
+    '@nuxt/image',
+    // https://go.nuxtjs.dev/pwa
+    '@nuxtjs/pwa',
+  ],
 }

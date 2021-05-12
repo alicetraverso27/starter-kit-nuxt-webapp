@@ -17,6 +17,7 @@ import gtm from './configuration/google-tag-manager.js'
 import hooks from './configuration/hooks.js'
 import head from './configuration/head/'
 import i18n from './configuration/i18n.js'
+import image from './configuration/image.js'
 import loading from './configuration/loading.js'
 import loadingIndicator from './configuration/loadingIndicator.js'
 import modules from './configuration/modules.js'
@@ -59,6 +60,7 @@ export default {
   ...head,
   ...hooks,
   ...i18n,
+  ...image,
   ...loading,
   ...loadingIndicator,
   ...modules,

@@ -5,8 +5,6 @@ export default {
     '@nuxtjs/style-resources',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
     '@nuxtjs/apollo',
     '@nuxtjs/sitemap',
     '@nuxtjs/gtm',
