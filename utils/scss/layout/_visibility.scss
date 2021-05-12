@@ -1,11 +1,11 @@
 .show-for-small{
   @include media('>=large'){
-    display: none!important;
+    display: none !important;
   }
 }
 
 .show-for-large{
   @include media('<large'){
-    display: none!important;
+    display: none !important;
   }
 }

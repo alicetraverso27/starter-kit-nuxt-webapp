@@ -8,7 +8,7 @@ $reverse: false,
 $activeClass: 'active') {
   text-decoration: none;
   display: inline-block;
-  &:after {
+  &::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -26,7 +26,7 @@ $activeClass: 'active') {
   }
   @include react('pointer'){
     &:hover {
-      &:after {
+      &::after {
         transform-origin: $back-origin;
         @if $reverse {
           transform: scaleX(1) translateY(#{$height * 2});
@@ -40,9 +40,10 @@ $activeClass: 'active') {
     @if $reverse {
       transform: scaleX(1) translateY(#{$height * 2});
     } @else {
-      transform: scaleX(0) translateY(#{$height * 2});
+      transform: scaleX(0) translateY(#{$height * 2})
     }
   }
   
 }
+
 /* @end */

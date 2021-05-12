@@ -9,6 +9,7 @@
     }
     $values: append($values, clamp(#{$clamp}));
   }
+
   #{$property}: $values;
 }
 

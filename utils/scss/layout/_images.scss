@@ -12,6 +12,7 @@ img{
 
 .lazywrap{
   --ratio: 1.22;
+
   padding-top: calc(100% * var(--ratio));
   height: 0;
   & > * {

@@ -28,10 +28,11 @@
     "nuxt-i18n": "^6.27.0",
     "qs": "^6.10.1",
     "remove-focus-outline": "^1.2.1",
-    "stylelint-scss": "^3.19.0",
     "utils": "file:../utils"
   },
   "devDependencies": {
+    "stylelint-scss": "^3.19.0",
+
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxt/image": "^0.4.8",
     "@nuxtjs/eslint-config": "^6.0.0",

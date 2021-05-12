@@ -6,8 +6,9 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --ext .js --ignore-path .gitignore .",
-    "lint:fix": "eslint --fix --ext .js, --ignore-path .gitignore ."
+    "lint:js": "eslint --fix --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint:style": "stylelint --fix \"**/*.{scss,css}\" --ignore-path .gitignore",
+    "lint": "npm run lint:js && npm run lint:style"
   },
   "dependencies": {
     "babel-eslint": "^10.1.0",
@@ -18,6 +19,10 @@
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "prettier": "^2.3.0"
+    "prettier": "^2.3.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-scss": "^3.19.0"
   }
 }
