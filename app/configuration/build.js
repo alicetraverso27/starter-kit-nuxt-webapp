@@ -3,5 +3,6 @@ export default {
   build: {
     transpile: ['gsap'],
     extend(config, ctx) {},
+    cssSourceMap: false,
   },
 }

@@ -103,6 +103,7 @@ export default {
 
 <style lang="scss">
 body {
+  height: var(--viewport-height);
   @include gesture('pointer') {
     background: #cc0000;
   }
