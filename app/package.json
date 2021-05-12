@@ -18,7 +18,6 @@
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/axios": "^5.13.1",
-    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/sitemap": "^2.4.0",
@@ -33,6 +32,7 @@
     "utils": "file:../utils"
   },
   "devDependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxt/image": "^0.4.8",
     "@nuxtjs/eslint-config": "^6.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
