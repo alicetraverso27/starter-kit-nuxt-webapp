@@ -62,7 +62,7 @@ export default {
     },
   }),
   head() {
-    const title = this.seo?.title
+    const title = this.seo?.title || ''
     return {
       title,
       ...this.i18nHead(
