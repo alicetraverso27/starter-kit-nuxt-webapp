@@ -6,8 +6,7 @@ export default [
   },
   {
     rel: 'stylesheet',
-    href:
-      'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap',
+    href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap',
   },
   // { rel: 'preload', as="font", href="/assets/my-local-font", type="font/woff2", crossorigin="anonymous" }
 ]
