@@ -16,13 +16,13 @@
     "modern-css-reset": "^1.4.0"
   },
   "devDependencies": {
-    "eslint": "^7.26.0",
+    "eslint": "^7.30.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "prettier": "^2.3.0",
+    "prettier": "^2.3.2",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-standard": "^21.0.0",
+    "stylelint-config-standard": "^22.0.0",
     "stylelint-scss": "^3.19.0"
   }
 }

@@ -1,8 +1,7 @@
 // https://pwa.nuxtjs.org/
 export default {
   pwa: {
-    /* manifest: {
-      lang: 'en',
-    }, */
+    manifest: {},
+    icon: false // disables the icon module
   },
 }
