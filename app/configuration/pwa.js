@@ -2,6 +2,6 @@
 export default {
   pwa: {
     manifest: {},
-    icon: false // disables the icon module
+    icon: false, // disables the icon module
   },
 }
