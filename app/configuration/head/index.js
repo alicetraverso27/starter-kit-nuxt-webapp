@@ -6,7 +6,7 @@ export default {
     htmlAttrs: {},
     meta: [
       { name: 'charset', content: 'utf-8' },
-      { name: 'author', content: process.env.AUTHOR },
+      { name: 'author', content: process.env.NUXT_ENV_AUTHOR },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     ],
     link: [

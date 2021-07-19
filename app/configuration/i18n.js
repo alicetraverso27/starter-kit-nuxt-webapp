@@ -5,7 +5,7 @@ import en from '../translation/en_US'
 export default {
   i18n: {
     seo: false,
-    baseUrl: process.env.BASE_URL,
+    baseUrl: process.env.NUXT_ENV_BASE_URL,
     locales: [
       {
         code: 'en',

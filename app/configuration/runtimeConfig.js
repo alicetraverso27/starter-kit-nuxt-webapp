@@ -2,13 +2,13 @@
 export default {
   publicRuntimeConfig: {
     /*
-    baseURL: process.env.BASE_URL,
+    baseURL: process.env.NUXT_ENV_BASE_URL,
     */
   },
   privateRuntimeConfig: {
     /*
-    apiURL: process.env.API_URL,
-    apiKEY: process.env.API_KEY,
+    apiURL: process.env.NUXT_ENV_API_URL,
+    apiKEY: process.env.NUXT_ENV_API_KEY,
     */
   },
 }
