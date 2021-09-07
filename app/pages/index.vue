@@ -1,53 +1,13 @@
 <template>
-  <LocomotiveScroll
-    ref="scroller"
-    :getted-options="{
-      smooth: true,
-      direction: 'vertical',
-      smartphone: {
-        smooth: true,
-        direction: 'vertical',
-      },
-      tablet: {
-        smooth: true,
-        direction: 'vertical',
-      },
-    }"
-  >
-    <p class="margin-10">weewrwrew</p>
-    <input type="text" placeholder="mona" />
-    <div class="row">
-      <VideoPlayer
-        ref="video"
-        :options="{
-          loadingSpinner: true,
-          autoplay: true,
-          muted: false,
-          controls: true,
-          loop: true,
-          playsinline: true,
-          preload: 'auto',
-          sources: [
-            {
-              src: 'https://player.vimeo.com/external/438820261.hd.mp4?s=b3352a6e1751a4c3c414f15f819cf3cf0e86868f&profile_id=175',
-              type: 'video/mp4',
-            },
-          ],
-        }"
-      />
-      <nuxt-link :to="switchLocalePath('en')"> English </nuxt-link>
-      <nuxt-link :to="switchLocalePath('it')"> Italiano </nuxt-link>
-      home {{ $i18n.locale }}
-      <h1>TESTSTETSTfef</h1>
-      <p>GQL Calls: {{ ping }}</p>
-      <p>Api Calls: {{ results }}</p>
-    </div>
-  </LocomotiveScroll>
+  <div>
+    <h1>Server</h1>
+    {{ results }}
+    <h2>Client</h2>
+    {{ clientData }}
+  </div>
 </template>
 
 <script>
-import gql from 'graphql-tag'
-
 export default {
   async asyncData({ $axios }) {
     const todos = await $axios.$get('https://gorest.co.in/public-api/todos')
@@ -60,6 +20,7 @@ export default {
       meta: [],
       links: [],
     },
+    clientData: null,
   }),
   head() {
     const title = this.seo?.title || ''
@@ -71,7 +32,11 @@ export default {
       ),
     }
   },
-  mounted() {
+  async mounted() {
+    this.clientData = await this.$axios.$get(
+      'https://gorest.co.in/public-api/todos'
+    )
+
     this.seo.title = 'Webapp | Nuxt'
     this.seo.meta = [
       {
@@ -87,55 +52,5 @@ export default {
       },
     ]
   },
-  apollo: {
-    ping: {
-      query: gql`
-        query Ping {
-          ping
-        }
-      `,
-      prefetch: true,
-    },
-  },
 }
 </script>
-
-<style lang="scss">
-body {
-  height: var(--viewport-height);
-  @include gesture('pointer') {
-    background: #c00;
-  }
-}
-.row {
-  padding: 25px;
-  margin: auto;
-  background: #ccc;
-  .video-js {
-    width: 100%;
-  }
-}
-p {
-  @include clamp('margin', (100px 10vw 200px, 150px 25vw 300px));
-}
-
-h1 {
-  // $property: 'font-size', $sizes: ('<large': 12px , '>=large': 50px)
-  @include break(
-    'font-size',
-    (
-      '<large': 12px,
-      '>=large': 50px,
-    )
-  );
-  @include break(
-    'margin',
-    (
-      '<large': 12px 50px,
-      '>=large': 222px 550px,
-    )
-  );
-}
-
-@include static('margin', 'margin', 1, 100);
-</style>

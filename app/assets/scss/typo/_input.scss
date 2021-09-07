@@ -1,19 +1,32 @@
 /* @group Reset */
 
-input, select, textarea{
+input{
   border: 1px solid $text-base;
   outline: 0;
   &:focus{
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.75);
+  }
+  &:disabled{
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.75);
+  }
+  &:not([type="checkbox"]):not([type="radio"]){
+    border-radius: 0;
+    appearance: none;
+  }
+  
+}
+
+select, textarea{
+  border-radius: 0;
+  appearance: none;
+  border: 1px solid $text-base;
+  outline: 0;
+  &:focus{
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.75);
   }
   &:disabled{
     cursor: not-allowed;
   }
-}
-
-input:not([type = checkbox]):not([type = radio]), select, textarea{
-  border-radius: 0;
-  appearance: none;
 }
 
 ::placeholder {

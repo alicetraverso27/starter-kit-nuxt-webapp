@@ -13,6 +13,7 @@ img{
 /* @group Nuxt Image */
 .nuxt-image{
   --ratio: 1.4;
+
   width: 100%;
   padding-top: calc(100% * var(--ratio));
   img{
