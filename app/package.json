@@ -23,7 +23,6 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "core-js": "^3.15.2",
     "gsap": "^3.7.0",
-    "library": "file:../library",
     "modern-css-reset": "^1.4.0",
     "nuxt": "^2.15.7",
     "nuxt-i18n": "^6.27.2",
