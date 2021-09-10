@@ -1,54 +1,72 @@
 <template>
   <div>
-    <h1>Server</h1>
-    {{ results }}
-    <h2>Client</h2>
-    {{ clientData }}
+    <h1>Nuxt starterkit</h1>
+    <h2>Rest todo</h2>
+    <ul>
+      <li v-for="todo in todos" :key="todo.id">
+        <nuxt-link
+          :to="localePath({ name: 'rest-id', params: { id: todo.id } })"
+          >link to Todo id#{{ todo.id }}</nuxt-link
+        >
+      </li>
+    </ul>
+    <h2>Gql todo</h2>
+    <ul>
+      <li v-for="launch in launches" :key="launch.id">
+        <nuxt-link
+          :to="localePath({ name: 'gql-id', params: { id: launch.id } })"
+          >link to Launch id#{{ launch.id }}</nuxt-link
+        >
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
+import { launchList } from '@/grapqhl/queries/launches.js'
+
 export default {
-  async asyncData({ $axios }) {
-    const todos = await $axios.$get(process.env.NUXT_ENV_REST_URL)
-    return { results: todos }
+  async asyncData({ app, $axios }) {
+    // Rest API
+    const todos = await $axios
+      .$get(process.env.NUXT_ENV_REST_URL)
+      .then(({ data }) => data)
+
+    // GraphQL API
+    const launches = await app.apolloProvider.defaultClient
+      .query({
+        query: launchList,
+        variables: {
+          limit: 10,
+        },
+      })
+      .then(({ data }) => data.launches)
+
+    return { todos, launches }
   },
-  data: () => ({
-    seo: {
-      title: '',
-      htmlAttrs: {},
-      meta: [],
-      links: [],
-    },
-    clientData: null,
-  }),
   head() {
-    const title = this.seo?.title || ''
     return {
-      title,
+      // Static Seo setup
+      title: 'Webapp | Nuxt',
       ...this.i18nHead(
-        this.seo,
+        {
+          meta: [
+            {
+              hid: 'description',
+              name: 'description',
+              content: 'Starter kit webapp Nuxt',
+            },
+            { hid: 'og:title', property: 'og:title', content: 'Webapp | Nuxt' },
+            {
+              hid: 'og:description',
+              property: 'og:description',
+              content: 'Starter kit webapp Nuxt',
+            },
+          ],
+        },
         this.$nuxtI18nHead({ addSeoAttributes: true })
       ),
     }
-  },
-  async mounted() {
-    this.clientData = await this.$axios.$get(process.env.NUXT_ENV_REST_URL)
-
-    this.seo.title = 'Webapp | Nuxt'
-    this.seo.meta = [
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'Starter kit webapp Nuxt',
-      },
-      { hid: 'og:title', property: 'og:title', content: 'Webapp | Nuxt' },
-      {
-        hid: 'og:description',
-        property: 'og:description',
-        content: 'Starter kit webapp Nuxt',
-      },
-    ]
   },
 }
 </script>
