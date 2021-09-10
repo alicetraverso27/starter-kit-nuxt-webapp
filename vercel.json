@@ -5,7 +5,7 @@
       "src": "app/nuxt.config.js",
       "use": "@nuxtjs/vercel-builder",
       "config": {
-        "serverFiles": ["package.json", "configuration/**", "translation/**", ".nuxt/dist/sitemap-routes.json"]
+        "serverFiles": ["app/package.json", "app/configuration/**", "app/translation/**", "app/.nuxt/dist/sitemap-routes.json"]
       }
     }
   ],
