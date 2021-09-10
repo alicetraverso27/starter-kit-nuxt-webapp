@@ -10,7 +10,7 @@
 <script>
 export default {
   async asyncData({ $axios }) {
-    const todos = await $axios.$get('https://gorest.co.in/public-api/todos')
+    const todos = await $axios.$get(process.env.NUXT_ENV_REST_URL)
     return { results: todos }
   },
   data: () => ({
@@ -34,7 +34,7 @@ export default {
   },
   async mounted() {
     this.clientData = await this.$axios.$get(
-      'https://gorest.co.in/public-api/todos'
+      process.env.NUXT_ENV_REST_URL
     )
 
     this.seo.title = 'Webapp | Nuxt'
