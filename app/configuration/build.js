@@ -6,8 +6,8 @@ export default {
     transpile: ['gsap'],
     extend(config, ctx) {
       // Add '~/library' as an alias.
-        config.resolve.alias.shared = resolve(__dirname, "../library");
-        config.resolve.alias["~library"] = resolve(__dirname, "../library");
+        config.resolve.alias.shared = resolve(__dirname, "../../library");
+        config.resolve.alias["~library"] = resolve(__dirname, "../../library");
     },
     cssSourceMap: false,
   },
