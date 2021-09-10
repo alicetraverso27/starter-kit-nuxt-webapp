@@ -2,7 +2,11 @@
 export default {
   build: {
     transpile: ['gsap'],
-    extend(config, ctx) {},
+    extend(config, ctx) {
+      // Add '~/library' as an alias.
+        config.resolve.alias.shared = resolve(__dirname, "../library");
+        config.resolve.alias["~library"] = resolve(__dirname, "../library");
+    },
     cssSourceMap: false,
   },
 }

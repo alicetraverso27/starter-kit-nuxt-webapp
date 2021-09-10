@@ -2,8 +2,8 @@
 export default {
   styleResources: {
     scss: [
-      '~/assets/scss/vars/_index.scss',
-      '~/assets/scss/mixins/_index.scss',
+      '~/styles/scss/vars/_index.scss',
+      '~/styles/scss/mixins/_index.scss',
     ],
   },
 }
