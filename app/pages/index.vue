@@ -33,9 +33,7 @@ export default {
     }
   },
   async mounted() {
-    this.clientData = await this.$axios.$get(
-      process.env.NUXT_ENV_REST_URL
-    )
+    this.clientData = await this.$axios.$get(process.env.NUXT_ENV_REST_URL)
 
     this.seo.title = 'Webapp | Nuxt'
     this.seo.meta = [
