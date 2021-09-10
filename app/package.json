@@ -14,7 +14,7 @@
     "lint:style": "stylelint --fix \"**/*.{vue,scss,css}\" --ignore-path .gitignore",
     "lint": "npm run lint:js && npm run lint:style",
     "test": "jest",
-    "install:library": "cd ../library/"
+    "install:library": "cd ../library/ && npm i"
   },
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.1-rc.5",
