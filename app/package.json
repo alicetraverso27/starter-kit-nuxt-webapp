@@ -7,16 +7,14 @@
   "license": "MIT",
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
+    "build": "npm run install:library && nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "npm run install:library && nuxt generate",
     "lint:js": "eslint --fix --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint:style": "stylelint --fix \"**/*.{vue,scss,css}\" --ignore-path .gitignore",
     "lint": "npm run lint:js && npm run lint:style",
     "test": "jest",
-    "install:app": "npm i",
-    "install:library": "cd ../library/ && npm i",
-    "install": "npm run install:library && npm run install:app"
+    "install:library": "cd ../library/"
   },
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.1-rc.5",
