@@ -3,14 +3,14 @@
     <h1>Nuxt starterkit</h1>
     <h2>Rest todo</h2>
     <ul>
-      <li v-for="todo in todos" :key="todo.id">
+      <li v-for="item in todos" :key="item.id">
         <nuxt-link
-          :to="localePath({ name: 'rest-id', params: { id: todo.id } })"
-          >link to Todo id#{{ todo.id }}</nuxt-link
+          :to="localePath({ name: 'rest-id', params: { id: item.id } })"
+          >link to Todo id#{{ item.id }}</nuxt-link
         >
       </li>
     </ul>
-    <h2>Gql todo</h2>
+    <h2>Gql launches</h2>
     <ul>
       <li v-for="launch in launches" :key="launch.id">
         <nuxt-link

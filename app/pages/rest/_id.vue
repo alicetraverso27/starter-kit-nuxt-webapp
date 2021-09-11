@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>{{ todo.title }}</h1>
-    <p>Todo #{{ todo.id }}</p>
+    <h1>{{ item.title }}</h1>
+    <p>Todo #{{ item.id }}</p>
     <nuxt-link :to="localePath({ name: 'index' })">Back to home</nuxt-link>
   </div>
 </template>
@@ -9,30 +9,30 @@
 <script>
 export default {
   async asyncData({ params, error, $axios }) {
-    const todo = await $axios
+    const item = await $axios
       .$get(process.env.NUXT_ENV_REST_URL)
-      .then(({ data }) => data.find((todo) => todo.id.toString() === params.id))
+      .then(({ data }) => data.find((item) => item.id.toString() === params.id))
 
-    if (!todo) return error({ statusCode: 404 })
+    if (!item) return error({ statusCode: 404 })
 
     const seo = {
-      title: todo.title,
+      title: item.title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: `Todo ${todo.id}`,
+          content: `Todo ${item.id}`,
         },
-        { hid: 'og:title', property: 'og:title', content: todo.title },
+        { hid: 'og:title', property: 'og:title', content: item.title },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: `Todo ${todo.id}`,
+          content: `Todo ${item.id}`,
         },
       ],
     }
 
-    return { todo, seo }
+    return { item, seo }
   },
   head() {
     // Dynamic Seo setup /plugins/seo/i18n-head.js
