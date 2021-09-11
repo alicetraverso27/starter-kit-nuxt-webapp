@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{ item.title }}</h1>
-    <p>Todo #{{ item.id }}</p>
+    <p>Item #{{ item.id }}</p>
     <nuxt-link :to="localePath({ name: 'index' })">Back to home</nuxt-link>
   </div>
 </template>
@@ -21,13 +21,13 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: `Todo ${item.id}`,
+          content: `Item ${item.id}`,
         },
         { hid: 'og:title', property: 'og:title', content: item.title },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: `Todo ${item.id}`,
+          content: `Item ${item.id}`,
         },
       ],
     }

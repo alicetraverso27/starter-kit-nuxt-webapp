@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{ launch.mission_name }}</h1>
-    <p>Todo #{{ launch.id }}</p>
+    <p>Launch #{{ launch.id }}</p>
     <nuxt-link :to="localePath({ name: 'index' })">Back to home</nuxt-link>
   </div>
 </template>
@@ -27,13 +27,13 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: `Todo ${launch.id}`,
+          content: `Launch ${launch.id}`,
         },
         { hid: 'og:title', property: 'og:title', content: launch.mission_name },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: `Todo ${launch.id}`,
+          content: `Launch ${launch.id}`,
         },
       ],
     }

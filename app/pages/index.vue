@@ -1,12 +1,12 @@
 <template>
   <div>
     <h1>Nuxt starterkit</h1>
-    <h2>Rest todo</h2>
+    <h2>Rest items</h2>
     <ul>
-      <li v-for="item in todos" :key="item.id">
+      <li v-for="item in items" :key="item.id">
         <nuxt-link
           :to="localePath({ name: 'rest-id', params: { id: item.id } })"
-          >link to Todo id#{{ item.id }}</nuxt-link
+          >link to Item id#{{ item.id }}</nuxt-link
         >
       </li>
     </ul>
@@ -28,7 +28,7 @@ import { launchList } from '@/grapqhl/queries/launches.js'
 export default {
   async asyncData({ app, $axios }) {
     // Rest API
-    const todos = await $axios
+    const items = await $axios
       .$get(process.env.NUXT_ENV_REST_URL)
       .then(({ data }) => data)
 
@@ -42,7 +42,7 @@ export default {
       })
       .then(({ data }) => data.launches)
 
-    return { todos, launches }
+    return { items, launches }
   },
   head() {
     return {
