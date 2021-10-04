@@ -6,6 +6,7 @@
   "author": "Davide Marchet",
   "license": "MIT",
   "scripts": {
+    "vercel-build": "npm run install:all && nuxt build",
     "dev": "nuxt",
     "build": "npm run install:all && nuxt build",
     "start": "nuxt start",
