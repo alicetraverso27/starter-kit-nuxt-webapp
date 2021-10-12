@@ -1,0 +1,49 @@
+/* @group Underline Links */
+@mixin underline(
+$height: 2px, 
+$color: inherit, 
+$origin: bottom right, 
+$back-origin: bottom left, 
+$reverse: false,
+$activeClass: 'active') {
+  text-decoration: none;
+  display: inline-block;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: $height solid;
+    border-color: $color;
+    bottom: 0;
+    left: 0;
+    transform-origin: $origin;
+    transition: transform $speed-medium ease;
+    @if $reverse {
+      transform: scaleX(0) translateY(#{$height * 2});
+    } @else {
+      transform: scaleX(1) translateY(#{$height * 2});
+    }
+  }
+  @include react('pointer'){
+    &:hover {
+      &::after {
+        transform-origin: $back-origin;
+        @if $reverse {
+          transform: scaleX(1) translateY(#{$height * 2});
+        } @else {
+          transform: scaleX(0) translateY(#{$height * 2});
+        }
+      }
+    }
+  }
+  &.#{$activeClass}:after {
+    @if $reverse {
+      transform: scaleX(1) translateY(#{$height * 2});
+    } @else {
+      transform: scaleX(0) translateY(#{$height * 2})
+    }
+  }
+  
+}
+
+/* @end */
