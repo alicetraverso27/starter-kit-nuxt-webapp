@@ -19,6 +19,10 @@
         >
       </li>
     </ul>
+    <h2>Local AsyncData API</h2>
+    <p>{{ localAPI }}</p>
+    <h2>Local Mounted API</h2>
+    <p>{{ localMountedAPI }}</p>
   </div>
 </template>
 
@@ -43,8 +47,17 @@ export default {
       })
       .then(({ data }) => data.launches)
 
-    return { items, launches }
+    const localAPI = await $axios
+      .$post('/api/my-api', {
+        params: 'Tobi',
+      })
+      .catch((e) => console.log(e))
+
+    return { items, launches, localAPI }
   },
+  data: () => ({
+    localMountedAPI: undefined,
+  }),
   head() {
     return {
       // Static Seo setup
@@ -68,6 +81,13 @@ export default {
         this.$nuxtI18nHead({ addSeoAttributes: true })
       ),
     }
+  },
+  async mounted() {
+    this.localMountedAPI = await this.$axios
+      .$post('/api/my-api', {
+        params: 'Tobi',
+      })
+      .catch((e) => console.log(e))
   },
 }
 </script>

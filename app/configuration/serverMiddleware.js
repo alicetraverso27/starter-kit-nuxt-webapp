@@ -1,3 +1,3 @@
 export default {
-  serverMiddleware: [],
+  serverMiddleware: [{ path: '/api', handler: '~/server-middleware' }],
 }
