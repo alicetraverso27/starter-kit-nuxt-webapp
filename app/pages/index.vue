@@ -84,7 +84,7 @@ export default {
   },
   async mounted() {
     this.localMountedAPI = await this.$axios
-      .$post('api/my-api', {
+      .$post('/api/my-api', {
         params: 'Tobi',
       })
       .catch((e) => console.log(e))
