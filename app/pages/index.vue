@@ -48,7 +48,7 @@ export default {
       .then(({ data }) => data.launches)
 
     const localAPI = await $axios
-      .$post('/api/my-api', {
+      .$post(`${process.env.NUXT_ENV_LOCAL_API_URL}/api/my-api`, {
         params: 'Tobi',
       })
       .catch((e) => console.log(e))
@@ -84,7 +84,7 @@ export default {
   },
   async mounted() {
     this.localMountedAPI = await this.$axios
-      .$post('https://starter-kit-nuxt-webapp-prod.vercel.app/api/my-api', {
+      .$post(`${process.env.NUXT_ENV_LOCAL_API_URL}/api/my-api`, {
         params: 'Tobi',
       })
       .catch((e) => console.log(e))
