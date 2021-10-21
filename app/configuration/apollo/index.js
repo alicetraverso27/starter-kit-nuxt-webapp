@@ -4,5 +4,6 @@ export default {
     clientConfigs: {
       default: '~/configuration/apollo/config.js',
     },
+    errorHandler: '~/configuration/apollo/error-handler.js',
   },
 }
