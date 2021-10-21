@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { launchList } from '@/grapqhl/queries/launches.js'
+import { launchList } from '@/graphql/queries/launches.js'
 
 export default {
   async asyncData({ app, $axios }) {

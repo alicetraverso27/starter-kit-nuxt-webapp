@@ -6,7 +6,7 @@
   </div>
 </template>
 <script>
-import { launchInfo } from '@/grapqhl/queries/launches.js'
+import { launchInfo } from '@/graphql/queries/launches.js'
 
 export default {
   async asyncData({ app, params, error }) {
