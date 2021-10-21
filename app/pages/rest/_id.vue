@@ -10,8 +10,7 @@
 export default {
   async asyncData({ params, error, $axios }) {
     const item = await $axios
-      // .$get(process.env.NUXT_ENV_REST_URL)
-      .$get('https://gorest.co.in/public-api/todos')
+      .$get(process.env.NUXT_ENV_REST_URL)
       .then(({ data }) => data.find((item) => item.id.toString() === params.id))
 
     if (!item) return error({ statusCode: 404 })

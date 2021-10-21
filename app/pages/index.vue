@@ -33,8 +33,7 @@ export default {
   async asyncData({ app, $axios }) {
     // Rest API
     const items = await $axios
-      // .$get(process.env.NUXT_ENV_REST_URL)
-      .$get('https://gorest.co.in/public-api/todos')
+      .$get(process.env.NUXT_ENV_REST_URL)
       .then(({ data }) => data)
 
     // GraphQL API
