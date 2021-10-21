@@ -9,6 +9,7 @@
     "vercel-build": "npm run install:all && nuxt build",
     "dev": "nuxt",
     "build": "npm run install:all && nuxt build",
+    "analyze": "npm run install:all && nuxt build --analyze",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --fix --ext \".js,.vue\" --ignore-path .gitignore .",
