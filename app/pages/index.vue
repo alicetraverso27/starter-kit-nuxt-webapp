@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Nuxt starterkit</h1>
-    <h2>Rest items</h2>
+    <h2 class="slope">Rest items</h2>
     <ul>
       <li v-for="item in items" :key="item.id">
         <nuxt-link
@@ -90,3 +90,14 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.slope {
+  font-size: slamp(1rem, 3rem);
+}
+@include react('large') {
+  body {
+    background: #c00 !important;
+  }
+}
+</style>
