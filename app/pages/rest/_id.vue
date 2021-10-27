@@ -9,37 +9,47 @@
 <script>
 export default {
   async asyncData({ params, error, $axios }) {
-    const item = await $axios
-      .$get(process.env.NUXT_ENV_REST_URL)
-      .then(({ data }) => data.find((item) => item.id.toString() === params.id));
+    try {
+      const item = await $axios
+        .$get(process.env.NUXT_ENV_REST_URL)
+        .then(({ data }) =>
+          data.find((item) => item.id.toString() === params.id)
+        )
 
-    if (!item) return error({ statusCode: 404 });
+      if (!item) return error({ statusCode: 404 })
 
-    const seo = {
-      title: item.title,
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: `Item ${item.id}`,
-        },
-        { hid: "og:title", property: "og:title", content: item.title },
-        {
-          hid: "og:description",
-          property: "og:description",
-          content: `Item ${item.id}`,
-        },
-      ],
-    };
+      const seo = {
+        title: item.title,
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: `Item ${item.id}`,
+          },
+          { hid: 'og:title', property: 'og:title', content: item.title },
+          {
+            hid: 'og:description',
+            property: 'og:description',
+            content: `Item ${item.id}`,
+          },
+        ],
+      }
 
-    return { item, seo };
+      return { item, seo }
+    } catch (e) {
+      console.log(e)
+      error({ statusCode: 404 })
+    }
   },
   head() {
     // Dynamic Seo setup /plugins/seo/i18n-head.js
     return {
       title: this.seo.title,
-      ...this.$i18nHead(this.seo, this.$nuxtI18nHead({ addSeoAttributes: true })),
-    };
+      ...this.$i18nHead(
+        this.seo,
+        this.$nuxtI18nHead({ addSeoAttributes: true })
+      ),
+    }
   },
-};
+}
 </script>

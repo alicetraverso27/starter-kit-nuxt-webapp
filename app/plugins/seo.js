@@ -32,7 +32,7 @@ const generateTags = (seo) => ({
     {
       hid: 'og:url',
       property: 'og:url',
-      content: '',
+      content: seo?.url,
     },
     {
       hid: 'og:title',
@@ -52,7 +52,7 @@ const generateTags = (seo) => ({
     {
       hid: 'twitter:url',
       name: 'twitter:url',
-      content: '',
+      content: seo?.url,
     },
     {
       hid: 'twitter:title',

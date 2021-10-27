@@ -6,46 +6,59 @@
   </div>
 </template>
 <script>
-import { launchInfo } from "@/graphql/queries/launches.js";
+import { launchInfo } from '@/graphql/queries/launches.js'
 
 export default {
   async asyncData({ app, params, error }) {
-    const launch = await app.apolloProvider.defaultClient
-      .query({
-        query: launchInfo,
-        variables: {
-          id: params.id,
-        },
-      })
-      .then(({ data }) => data.launch);
+    try {
+      const launch = await app.apolloProvider.defaultClient
+        .query({
+          query: launchInfo,
+          variables: {
+            id: params.id,
+          },
+        })
+        .then(({ data }) => data.launch)
+        .catch((e) => error({ statusCode: 404 }))
 
-    if (!launch) return error({ statusCode: 404 });
+      if (!launch) return error({ statusCode: 404 })
 
-    const seo = {
-      title: launch.mission_name,
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: `Launch ${launch.id}`,
-        },
-        { hid: "og:title", property: "og:title", content: launch.mission_name },
-        {
-          hid: "og:description",
-          property: "og:description",
-          content: `Launch ${launch.id}`,
-        },
-      ],
-    };
+      const seo = {
+        title: launch.mission_name,
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: `Launch ${launch.id}`,
+          },
+          {
+            hid: 'og:title',
+            property: 'og:title',
+            content: launch.mission_name,
+          },
+          {
+            hid: 'og:description',
+            property: 'og:description',
+            content: `Launch ${launch.id}`,
+          },
+        ],
+      }
 
-    return { launch, seo };
+      return { launch, seo }
+    } catch (e) {
+      console.log(e)
+      error({ statusCode: 404 })
+    }
   },
   head() {
     // Dynamic Seo setup /plugins/seo/i18n-head.js
     return {
       title: this.seo.title,
-      ...this.$i18nHead(this.seo, this.$nuxtI18nHead({ addSeoAttributes: true })),
-    };
+      ...this.$i18nHead(
+        this.seo,
+        this.$nuxtI18nHead({ addSeoAttributes: true })
+      ),
+    }
   },
-};
+}
 </script>

@@ -2,7 +2,7 @@
 export default {
   plugins: [
     { src: '~/plugins/both.js' },
-    { src: '~/plugins/seo.js'},
+    { src: '~/plugins/seo.js' },
     { src: '~/plugins/client.js', mode: 'client' },
     { src: '~/plugins/server.js', mode: 'server' },
     // Library
