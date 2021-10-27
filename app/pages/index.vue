@@ -4,8 +4,7 @@
     <h2 class="slope">Rest items</h2>
     <ul>
       <li v-for="item in items" :key="item.id">
-        <nuxt-link
-          :to="localePath({ name: 'rest-id', params: { id: item.id } })"
+        <nuxt-link :to="localePath({ name: 'rest-id', params: { id: item.id } })"
           >link to Item id#{{ item.id }}</nuxt-link
         >
       </li>
@@ -13,8 +12,7 @@
     <h2>Gql launches</h2>
     <ul>
       <li v-for="launch in launches" :key="launch.id">
-        <nuxt-link
-          :to="localePath({ name: 'gql-id', params: { id: launch.id } })"
+        <nuxt-link :to="localePath({ name: 'gql-id', params: { id: launch.id } })"
           >link to Launch id#{{ launch.id }}</nuxt-link
         >
       </li>
@@ -27,14 +25,14 @@
 </template>
 
 <script>
-import { launchList } from '@/graphql/queries/launches.js'
+import { launchList } from "@/graphql/queries/launches.js";
 
 export default {
   async asyncData({ app, $axios }) {
     // Rest API
     const items = await $axios
       .$get(process.env.NUXT_ENV_REST_URL)
-      .then(({ data }) => data)
+      .then(({ data }) => data);
 
     // GraphQL API
     const launches = await app.apolloProvider.defaultClient
@@ -44,15 +42,15 @@ export default {
           limit: 10,
         },
       })
-      .then(({ data }) => data.launches)
+      .then(({ data }) => data.launches);
 
     const localAPI = await $axios
       .$post(`${process.env.NUXT_ENV_BASE_URL}/api/my-api`, {
-        params: 'Tobi',
+        params: "Tobi",
       })
-      .catch((e) => console.log(e))
+      .catch((e) => console.log(e));
 
-    return { items, launches, localAPI }
+    return { items, launches, localAPI };
   },
   data: () => ({
     localMountedAPI: undefined,
@@ -60,33 +58,33 @@ export default {
   head() {
     return {
       // Static Seo setup
-      title: 'Webapp | Nuxt',
-      ...this.i18nHead(
+      title: "Webapp | Nuxt",
+      ...this.$i18nHead(
         {
           meta: [
             {
-              hid: 'description',
-              name: 'description',
-              content: 'Starter kit webapp Nuxt',
+              hid: "description",
+              name: "description",
+              content: "Starter kit webapp Nuxt",
             },
-            { hid: 'og:title', property: 'og:title', content: 'Webapp | Nuxt' },
+            { hid: "og:title", property: "og:title", content: "Webapp | Nuxt" },
             {
-              hid: 'og:description',
-              property: 'og:description',
-              content: 'Starter kit webapp Nuxt',
+              hid: "og:description",
+              property: "og:description",
+              content: "Starter kit webapp Nuxt",
             },
           ],
         },
         this.$nuxtI18nHead({ addSeoAttributes: true })
       ),
-    }
+    };
   },
   async mounted() {
     this.localMountedAPI = await this.$axios
       .$post(`${process.env.NUXT_ENV_BASE_URL}/api/my-api`, {
-        params: 'Tobi',
+        params: "Tobi",
       })
-      .catch((e) => console.log(e))
+      .catch((e) => console.log(e));
   },
-}
+};
 </script>

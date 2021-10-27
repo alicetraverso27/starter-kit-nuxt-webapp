@@ -44,7 +44,7 @@ export default {
     // Dynamic Seo setup /plugins/seo/i18n-head.js
     return {
       title: this.seo.title,
-      ...this.i18nHead(this.seo, this.$nuxtI18nHead({ addSeoAttributes: true })),
+      ...this.$i18nHead(this.seo, this.$nuxtI18nHead({ addSeoAttributes: true })),
     };
   },
 };
