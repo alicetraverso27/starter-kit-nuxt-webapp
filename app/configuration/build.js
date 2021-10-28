@@ -4,6 +4,7 @@ import { resolve } from 'path'
 export default {
   build: {
     transpile: ['gsap'],
+    // friendlyErrors: false, // Disable Lint overlay
     extend(config, ctx) {
       // Add '~/library' as an alias.
       // https://github.com/nuxt/vercel-builder/blob/main/examples/side-by-side/README.md
