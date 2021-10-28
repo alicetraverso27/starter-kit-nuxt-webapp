@@ -4,7 +4,7 @@
 export default {
   build: {
     transpile: ['gsap'],
-    friendlyErrors: false, // Disable Lint overlay
+    // friendlyErrors: false, // Disable Lint overlay
     extend(config, ctx) {
       /*
       // Add '~/library' as an alias.
