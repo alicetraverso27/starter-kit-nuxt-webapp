@@ -69,7 +69,7 @@ const generateTags = (seo) => ({
       name: 'twitter:image',
       content: seo?.image?.url,
     },
-  ],
+  ].filter((meta) => meta.content),
 })
 
 export default (context, inject) => {
