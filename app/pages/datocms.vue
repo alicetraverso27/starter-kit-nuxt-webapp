@@ -28,7 +28,7 @@ export default {
         seo: app.$generateTags({ ...seo, url: route.fullPath }),
       }
     } catch (e) {
-      console.log(e)
+      console.error(e)
       return error({ statusCode: 404 })
     }
   },

@@ -56,7 +56,7 @@ export default {
 
       return { items, launches, localAPI }
     } catch (e) {
-      console.log(e)
+      console.error(e)
       error({ statusCode: 404 })
     }
   },
@@ -92,7 +92,7 @@ export default {
       .$post(`${process.env.NUXT_ENV_BASE_URL}/api/my-api`, {
         params: 'Tobi',
       })
-      .catch((e) => console.log(e))
+      .catch((e) => console.error(e))
   },
 }
 </script>

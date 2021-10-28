@@ -46,7 +46,7 @@ export default {
 
       return { launch, seo }
     } catch (e) {
-      console.log(e)
+      console.error(e)
       error({ statusCode: 404 })
     }
   },
