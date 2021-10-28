@@ -7,6 +7,7 @@ export default {
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
     '@nuxtjs/dotenv',
+    'library/nuxt',
     '@nuxt/image',
     '@/modules/generator', // https://dev.to/andynoir/sitemap-for-dynamic-routes-in-nuxtjs-4b96
   ],

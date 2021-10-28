@@ -30,6 +30,7 @@
     "cross-env": "^7.0.3",
     "express": "^4.17.1",
     "gsap": "^3.7.0",
+    "library": "file:../library",
     "modern-css-reset": "^1.4.0",
     "nuxt": "^2.15.7",
     "nuxt-i18n": "^6.27.2",
