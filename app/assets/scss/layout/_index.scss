@@ -1,4 +1,5 @@
 @import 'modern-css-reset';
+@import './_setup.scss';
 @import './_paddings.scss';
 @import './_margins.scss';
 @import './_images.scss';
@@ -6,17 +7,4 @@
 @import './_layout.scss';
 @import './_list.scss';
 @import './_visibility.scss';
-
-*{
-  position: relative;
-}
-
-html{
-  min-height: 100vh;
-}
-
-body{
-  background-color: $background-base;
-  height: 100%;
-}
 

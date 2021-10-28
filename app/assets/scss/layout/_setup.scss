@@ -1,0 +1,12 @@
+*{
+  position: relative;
+}
+
+html{
+  min-height: 100vh;
+}
+
+body{
+  background-color: $background-base;
+  height: 100%;
+}
