@@ -1,0 +1,17 @@
+.horizontal-container{
+  overflow: hidden;
+}
+
+.horizontal-container__wrap {
+  --panels: 1;
+
+  width: calc( 100vw * var(--panels));
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.horizontal-container__panel {
+  width: 100vw;
+  height: 100%;
+}

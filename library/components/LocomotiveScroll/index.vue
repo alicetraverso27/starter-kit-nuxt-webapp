@@ -5,6 +5,9 @@
 </template>
 
 <script>
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 export default {
   name: 'LocomotiveScroll',
   directives: {
@@ -61,6 +64,32 @@ export default {
           ...e.scroll, // x, y
         })
       }
+    },
+  },
+  watch: {
+    locomotive: {
+      handler() {
+        this.locomotive.on('scroll', ScrollTrigger.update)
+        const locomotive = this.locomotive
+        ScrollTrigger.scrollerProxy(locomotive.el, {
+          scrollTop(value) {
+            return arguments.length
+              ? locomotive.scrollTo(value, 0, 0)
+              : locomotive.scroll.instance.scroll.y
+          },
+          getBoundingClientRect() {
+            return {
+              top: 0,
+              left: 0,
+              width: window.innerWidth,
+              height: window.innerHeight,
+            }
+          },
+          pinType: document.querySelector('.js-locomotive').style.transform
+            ? 'transform'
+            : 'fixed',
+        })
+      },
     },
   },
 }
