@@ -37,7 +37,7 @@
     "qs": "^6.10.1",
     "remove-focus-outline": "^1.2.1",
     "scss-react": "^1.0.0",
-    "scss-slamp": "^1.0.0"
+    "scss-slamp": "^1.1.4"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
